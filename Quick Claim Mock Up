@@ -1,0 +1,116 @@
+===============================
+QuickClaim Mock-up Documentation
+===============================
+
+1. Overview
+-----------
+QuickClaim is a front-end only mobile/web demo platform designed to simulate insurance claim filing and tracking. Users can create accounts, submit claims, track claim statuses, and interact with a polished dashboard—all without a backend.
+
+Purpose:
+- Showcase a functional prototype for submission.
+- Enable claim submission, tracking, and personalized dashboards.
+- Demonstrate responsive design, dark mode, and interactive elements.
+
+2. Folder Structure
+-------------------
+QuickClaim/
+|
+├─ splash.html        : Splash screen with typewriter animation
+├─ login.html         : Login and account creation
+├─ dashboard.html     : Enhanced dashboard with claims
+├─ styles.css         : Optional: shared CSS if separated
+└─ scripts.js         : Optional: shared JS if separated
+
+3. User Flow
+------------
+1. Splash Screen
+   - Displays “QuickClaim” via typewriter animation
+   - Redirects automatically to login page
+
+2. Login / Account Creation
+   - Users can create an account (first name, last name, email, password)
+   - Login validates credentials using localStorage
+   - Redirects to dashboard on success
+
+3. Dashboard
+   - Personalized greeting: “Hi, FirstName LastName”
+   - Claim submission modal: submit new claims with company, type, date
+   - Claims table updates dynamically
+   - Stats cards: Total, Pending, Approved, Rejected claims
+   - Auto-progress claim status for demo (Pending → Under Review → Approved)
+   - Dark mode toggle with localStorage persistence
+   - Logout button redirects to login
+
+4. Features
+-----------
+Feature                     : Description
+----------------------------|----------------------------------------
+LocalStorage Auth           : Users and claims persist locally
+Personalized Greeting       : Displays "Hi, FirstName LastName"
+Claims Table                : Lists claims with status badges
+Stats Cards                 : Total, Pending, Approved, Rejected counts
+Claim Submission Modal      : Form to submit new claims
+Auto-Progress Claim Status  : Simulates Pending → Under Review → Approved
+Dark Mode Toggle            : Theme preference saved in localStorage
+Mobile Responsive           : Cards stack vertically; table scrolls horizontally
+Logout                      : Clears currentUser and redirects to login
+Notifications               : Flash alert when a new claim is submitted
+
+5. LocalStorage Structure
+-------------------------
+{
+  "users": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john@example.com",
+      "password": "hashedPassword"
+    }
+  ],
+  "currentUser": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john@example.com"
+  },
+  "claims": [
+    {
+      "id": "C001",
+      "company": "Old Mutual",
+      "type": "Vehicle",
+      "date": "2025-08-10",
+      "status": "Pending"
+    }
+  ],
+  "darkMode": true
+}
+
+6. Technologies Used
+--------------------
+- Frontend: HTML, CSS (Glassmorphism & responsive), JavaScript
+- Persistence: localStorage
+- Animations: Typewriter animation, hover effects, smooth transitions
+- Design: Mobile-first layout, dark mode toggle
+
+7. Demo Notes
+-------------
+- Claims initialized with real South African insurance companies:
+  Old Mutual, Discovery, Sanlam, Momentum, OUTsurance
+- Dashboard auto-updates claim statuses for visual demonstration
+- Fully front-end simulation—no backend required
+- Mobile-friendly and visually polished
+
+8. Instructions to Run
+----------------------
+1. Open splash.html in a browser
+2. Create a new account or log in with pre-existing credentials
+3. Submit claims via "Submit New Claim" button
+4. Toggle dark mode using the 🌙 button
+5. Logout via "Logout" button to return to login
+
+9. Optional Future Enhancements
+-------------------------------
+- Multi-language support
+- AI-powered damage assessment from uploaded images
+- Integration with GPS for incident location
+- Voice-to-text claim descriptions
+- E-signature capability for approvals
