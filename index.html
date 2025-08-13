@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuickClaim</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Login / Registration Screen -->
+<div id="login-screen" class="screen active">
+  <div class="container">
+    <h1>QuickClaim</h1>
+    <div id="login-form">
+      <input type="email" id="login-email" placeholder="Email" />
+      <input type="password" id="login-password" placeholder="Password" />
+      <button id="login-btn" class="btn-primary">Login</button>
+      <p>New user? <span id="show-register" style="color:blue;cursor:pointer;">Register</span></p>
+    </div>
+    <div id="register-form" style="display:none;">
+      <input type="text" id="reg-name" placeholder="Full Name" />
+      <input type="email" id="reg-email" placeholder="Email" />
+      <input type="text" id="reg-contact" placeholder="Phone or Email" />
+      <input type="text" id="reg-address" placeholder="Address" />
+      <input type="text" id="reg-id" placeholder="ID Number" />
+      <input type="password" id="reg-password" placeholder="Password" />
+      <div style="display:flex; gap:0.5rem;">
+        <button id="register-back" class="btn-secondary">Back</button>
+        <button id="register-next" class="btn-primary">Next</button>
+      </div>
+      <button id="register-cancel" class="btn-secondary" style="margin-top:1rem;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Home Screen -->
+<div id="home-screen" class="screen">
+  <div class="container">
+    <h2>Welcome, <span id="user-name">User</span></h2>
+    <button id="new-claim-btn" class="btn-primary">Start New Claim</button>
+    <button id="track-claims-btn" class="btn-secondary" style="margin-top:1rem;">Track Claims</button>
+    <button id="logout-btn" class="btn-secondary" style="margin-top:1rem;">Logout</button>
+  </div>
+</div>
+
+<!-- New Claim Screen -->
+<!-- New Claim Screen (Multi-step) -->
+<div id="claim-screen" class="screen">
+  <div class="container">
+    <h2>New Claim</h2>
+    
+    <!-- Step indicators -->
+    <div id="step-indicator" style="margin-bottom:1rem; text-align:center;">
+      Step <span id="current-step">1</span> of 3
+    </div>
+
+    <form id="claim-form">
+<canvas id="myChart" width="" height=""></canvas>
+<script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
+    type: 'line',
+
+    data: {
+      labels: ,
+      datasets: [{
+        label: "My Chart",
+        data: ,
+        backgroundColor: ,
+        borderColor: ,
+        borderWidth: 
+      }]
+    },
+
+    options: {
+      title: {
+        text: "My Chart",
+        display: true,
+      },
+      events: [],
+      legend: {
+        display: true,
+      },
+      tooltips: {
+        mode: ''
+      },
+      layout: {},
+      animation: {}
+    }
+  });
+</script>
+      <!-- Step 1: Incident Details -->
+      <div class="form-step" data-step="1">
+        <label for="dateTime">Date & Time</label>
+        <input type="datetime-local" id="dateTime" required />
+
+        <label for="location">Location (optional)</label>
+        <input type="text" id="location" placeholder="Where did it happen?" />
+
+        <label for="notes">Notes</label>
+        <textarea id="notes" rows="3" placeholder="Describe what happened" required></textarea>
+
+        <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+          <button type="button" id="step1-cancel" class="btn-secondary">Cancel</button>
+          <button type="button" id="step1-next" class="btn-primary">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Upload & Contact -->
+      <div class="form-step" data-step="2" style="display:none;">
+        <label for="photo">Upload Photo</label>
+        <input type="file" id="photo" accept="image/*" capture="environment" required />
+        <img id="photo-preview" src="" alt="Photo Preview" style="width:100%; margin-top:0.5rem; display:none;"/>
+
+        <label for="otherContact">Other Party Contact (phone or email)</label>
+        <input type="text" id="otherContact" placeholder="Enter contact details" />
+
+        <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+          <button type="button" id="step2-back" class="btn-secondary">Back</button>
+          <button type="button" id="step2-next" class="btn-primary">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Review & Submit -->
+      <div class="form-step" data-step="3" style="display:none;">
+        <h3>Review Your Claim</h3>
+        <div id="review-claim" style="margin-bottom:1rem;"></div>
+
+        <div style="display:flex; gap:0.5rem;">
+          <button type="button" id="step3-back" class="btn-secondary">Back</button>
+          <button type="button" id="save-draft" class="btn-secondary">Save Draft</button>
+          <button type="submit" class="btn-primary">Submit Claim</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+<!-- Claim Tracking Screen -->
+<div id="track-screen" class="screen">
+  <div class="container">
+    <h2>Your Claims</h2>
+    <ul id="claims-list" style="list-style:none; padding:0;"></ul>
+    <button id="track-back" class="btn-secondary" style="margin-top:1rem;">Back</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
